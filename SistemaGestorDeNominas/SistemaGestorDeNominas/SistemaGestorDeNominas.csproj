@@ -162,6 +162,10 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Library\Bootstrap\css\bootstrap.min.css" />
+    <Content Include="Library\Bootstrap\js\bootstrap.min.js" />
+    <Content Include="Library\Bootstrap\js\popper.min.js" />
+    <Content Include="Library\Jquery\jquery-3.5.1.slim.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -283,12 +287,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Library\Bootstrap\css\" />
-    <Folder Include="Library\Bootstrap\js\" />
-    <Folder Include="Library\Jquery\" />
     <Folder Include="Models\" />
     <Folder Include="Services\" />
-    <Folder Include="wwwroot\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
