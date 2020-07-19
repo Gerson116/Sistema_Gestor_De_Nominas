@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet"/>
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet"/>*@
     @RenderSection("Css", required: false)
 </head>
 <body>
@@ -40,12 +40,9 @@
         </footer>
     </div>
 
-    @*@Scripts.Render("~/Scripts/jquery-3.4.1.min.js")
-        @Scripts.Render("~/Scripts/bootstrap.min.js")
-        @Scripts.Render("~/Scripts/popper.min.js")*@
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    @*<script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/popper.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>*@
     @RenderSection("scripts", required: false)
 </body>
 </html>
