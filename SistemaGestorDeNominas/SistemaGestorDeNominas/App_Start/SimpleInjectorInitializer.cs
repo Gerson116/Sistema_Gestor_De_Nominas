@@ -28,7 +28,6 @@ namespace SistemaGestorDeNominas.App_Start
      
         private static void InitializeContainer(Container container)
         {
-#error Register your services here (remove this line).
 
             // For instance:
             // container.Register<IUserRepository, SqlUserRepository>(Lifestyle.Scoped);
