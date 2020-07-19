@@ -283,6 +283,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Library\" />
     <Folder Include="Models\" />
     <Folder Include="Services\" />
     <Folder Include="wwwroot\" />
