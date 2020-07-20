@@ -151,13 +151,25 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
+    <Compile Include="Context\SistemaDeGestionDeNomina.cs" />
     <Compile Include="Controllers\ContribucionParaDGIIController.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\NominaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ContribucionEmpleado.cs" />
+    <Compile Include="Models\ContribucionEmpleador.cs" />
+    <Compile Include="Models\Empleado.cs" />
+    <Compile Include="Models\Nomina.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Contribucion_Y_Otros_Impuestos\IRetencionAlEmpleadoCRUD.cs" />
+    <Compile Include="Services\Contribucion_Y_Otros_Impuestos\SRetencionAlEmpleadoCRUD.cs" />
+    <Compile Include="Services\Empleado\IEmpleadoCRUD.cs" />
+    <Compile Include="Services\Empleado\SEmpleadoCRUD.cs" />
+    <Compile Include="Services\Nomina\INominaCRUD.cs" />
+    <Compile Include="Services\Nomina\SNominaCRUD.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -295,8 +307,6 @@
     <Content Include="Views\Empleado\AgregarEmpleado.cshtml" />
     <Content Include="Views\Nomina\NuevaNomina.cshtml" />
     <Content Include="Views\Nomina\GenerarNuevaNomina.cshtml" />
-    <Content Include="Views\Nomina\ContribucionEmpleador.cshtml" />
-    <Content Include="Views\Nomina\ContribucionEmpleado.cshtml" />
     <Content Include="Views\Nomina\NominaFiltrada.cshtml" />
     <Content Include="Views\Nomina\FiltrarNomina.cshtml" />
     <Content Include="Views\ContribucionParaDGII\FormularioContribucionesAgregar.cshtml" />
@@ -304,8 +314,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -4,8 +4,19 @@
 }
 
     <div class="row mt-3">
-        <div class="col-md-12">
+        <div class="col-md-8">
             <h2>Listado Empleado</h2>
+        </div>
+        <div class="col-md-4 mt-2">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle icon-filter" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Filtrar Empleados
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    @Html.ActionLink("Empleados Activos", "ListadoEmpleado", "Empleado", new { estado_A_Filtrar = 1 }, new { @class= "dropdown-item" })
+                    @Html.ActionLink("Empleados Inactivos", "ListadoEmpleado", "Empleado", new { estado_A_Filtrar = 0 }, new { @class = "dropdown-item" })
+                </div>
+            </div>
         </div>
     </div>
     <div class="row mt-2">
@@ -31,8 +42,8 @@
                     <td>19/7/2020</td>
                     <td>Activo</td>
                     <td>
-                        @Html.ActionLink("Editar", "EditarEmpleado", "Empleado", new { id = 2 }, new { @class = "btn btn-success icon-edit" })
-                        @Html.ActionLink("Bloquear", "CambiarEstado_A_Inactivo", "Empleado", new { id = 3 }, new { @class = "btn btn-danger icon-block" })
+                        @Html.ActionLink("Editar", "EditarEmpleado", "Empleado", new { id_empleado = 2 }, new { @class = "btn btn-success icon-edit" })
+                        @Html.ActionLink("Bloquear", "CambiarEstado_A_Inactivo", "Empleado", new { id_empleado = 3 }, new { @class = "btn btn-danger icon-block" })
                     </td>
                 </tr>
             </table>
