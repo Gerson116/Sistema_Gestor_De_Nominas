@@ -3,42 +3,37 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - SGN</title> <!-- Sistema Gestion de Nomina -->
     <link href="~/Library/Bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="~/Library/Fontello/css/fontello.css" rel="stylesheet" />
     @RenderSection("Css", required: false)
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid mt-1">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Active</a>
+                @Html.ActionLink("Listado Empleados", "ListadoEmpleado", "Empleado", null, new { @class = "nav-link active" })
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                @Html.ActionLink("Crear Nomina", "NuevaNomina", "Nomina", null, new { @class = "nav-link" })
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Filtrar Nomina", "FiltrarNomina", "Nomina", null, new { @class = "nav-link" })
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Contribución a Impuestos Internos
+                </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>
+                    @Html.ActionLink("Agregar Contribución de Empleado o Empleador.", "FormularioContribucionesAgregar", "ContribucionParaDGII", null, new { @class = "dropdown-item" })
+                    <div class="dropdown-divider"> <!-- Este div es un divisor --> </div>
+                    @Html.ActionLink("Editar Contribución de Empleado o Empleador.", "FormularioContribucionesEditar", "ContribucionParaDGII", null, new { @class = "dropdown-item" })
                 </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>
         </ul>
         @RenderBody()
     </div>
 
-    <div class="container-fluid body-content  mt-0">
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
     <script src="~/Library/Jquery/jquery-3.5.1.slim.min.js"></script>
     <script src="~/Library/Bootstrap/js/popper.min.js"></script>
     <script src="~/Library/Bootstrap/js/bootstrap.min.js"></script>

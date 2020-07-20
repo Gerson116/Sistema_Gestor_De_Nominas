@@ -1,7 +1,50 @@
 ﻿
 @{
-    ViewBag.Title = "AgregarEmpleado";
+    ViewBag.Title = "Nuevo Empleado";
 }
 
-<h2>AgregarEmpleado</h2>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <h2>Agregar nuevo empleado.</h2>
+        </div>
+    </div>
+    <div class="row mt-2 justify-content-md-center">
+        <div class="col-md-8">
+            <form action="/" method="post">
+                <div class="form-group">
+                    <!-- Aquí el nombre -->
+                    <label form="nombre">Nombre</label>
+                    <input type="text" name="nombre" placeholder="Gerson" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <!-- Aquí el apellido -->
+                    <label form="apellido">Apellido</label>
+                    <input type="text" name="apellido" placeholder="Santos Mateo" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <!-- Aquí el sexo -->
+                    <input type="radio" name="sexo" id="femenino" value="f" />
+                    <label for="femenino">Femenino</label>
 
+                    <input type="radio" name="sexo" id="masculino" value="m" />
+                    <label for="masculino">Masculino</label>
+                </div>
+                <div class="form-group">
+                    <!-- Aquí el sueldo -->
+                    <label for="sueldo">Sueldo a pagar</label>
+                    <input type="number" name="sueldo" placeholder="Ej: 24000.00" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <!-- Aquí la fecha de entrada -->
+                    <label for="fecha_de_entrada">Fecha de entrada</label>
+                    <input type="date" name="fecha_de_entrada" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-block btn-primary icon-plus">
+                        Guardar
+                    </button>
+                    @Html.ActionLink("Volver atrás", "ListadoEmpleado", "Empleado", null, new { @class = "btn btn-block btn-danger icon-left-big" })
+                </div>
+            </form>
+        </div>
+    </div>

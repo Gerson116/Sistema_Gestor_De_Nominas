@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Agregar Contribuciones";
+}
+
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <!-- Formulario empleado -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Agregar contribuciones del Empleado</h3>
+                </div>
+                <div class="col-md-8">
+                    <form action="/" method="post">
+                        <div class="form-group">
+                            <label for="ars">ARS</label>
+                            <input type="number" name="ars" class="form-control" placeholder="00.00"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="afp">AFP</label>
+                            <input type="number" name="afp" class="form-control" placeholder="00.00"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="irs">IRS</label>
+                            <input type="number" name="irs" class="form-control" placeholder="00.00"/>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block icon-plus" type="submit">
+                                Guardar para empleado
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <!-- Formulario empleador -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Agregar contribuciones de la Empresa</h3>
+                </div>
+                <div class="col-md-8">
+                    <form action="/" method="post">
+                        <div class="form-group">
+                            <label for="ars">ARS</label>
+                            <input type="number" name="ars" class="form-control" placeholder="00.00"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="afp">AFP</label>
+                            <input type="number" name="afp" class="form-control" placeholder="00.00"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="riesgoLaboral">Riesgo Laboral</label>
+                            <input type="number" name="riesgoLaboral" class="form-control" placeholder="00.00"/>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block icon-plus" type="submit">
+                                Guardar para Empresa
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+

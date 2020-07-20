@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Filtrar Nomina";
+}
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <h2>Elija la manera en como quiere filtrar la información</h2>
+        </div>
+    </div>
+    <hr />
+
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <h2>Filtrar Nomina por mes</h2>
+            <p class="icon-info">-Si desea filtrar la nomina de X mes y adicional por sexo pues marque Masculino o Femenino.</p>
+        </div>
+        <div class="col-md-6">
+            <form action="/" method="post">
+                <div class="row">
+                    <div class="col-md-8">
+                        <!-- Aquí dentro se encuentran: el input para fecha y sexo -->
+                        <input type="date" name="fechaDeEmicion" class="form-control" />
+
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <input type="radio" name="sexo" value="f" id="femenino" />
+                                <label for="femenino">Femenino</label>
+
+                                <input type="radio" name="sexo" value="m" id="masculino" />
+                                <label for="masculino">Masculino</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 justify-content-end">
+                        <button class="btn btn-primary icon-filter" type="submit">filtrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr />

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace SistemaGestorDeNominas.Controllers
 {
+    [Route("[controller]/[action]")]
     public class EmpleadoController : Controller
     {
         public ActionResult AgregarEmpleado() 
@@ -18,17 +19,17 @@ namespace SistemaGestorDeNominas.Controllers
             return View();
         }
 
-        public ActionResult PerfilEmpleado()
-        {
-            return View();
-        }
-
         public ActionResult EditarEmpleado()
         {
             return View();
         }
 
-        public ActionResult EliminarEmpleado()
+        public ActionResult CambiarEstado_A_Activo()
+        {
+            // Al eliminar los datos esta acción redireccionara a la accion lista.
+            return RedirectToAction(nameof(ListadoEmpleado));
+        }
+        public ActionResult CambiarEstado_A_Inactivo()
         {
             // Al eliminar los datos esta acción redireccionara a la accion lista.
             return RedirectToAction(nameof(ListadoEmpleado));

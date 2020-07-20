@@ -3,5 +3,38 @@
     ViewBag.Title = "ListadoEmpleado";
 }
 
-<h2>ListadoEmpleado</h2>
-
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <h2>Listado Empleado</h2>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-12">
+            @Html.ActionLink("Agregar nuevo empleado", "AgregarEmpleado", "Empleado", null, new { @class = "btn btn-success  icon-plus" })
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <table class="table">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Sexo</th>
+                    <th>Fecha de ingreso</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+                <tr>
+                    <td>Gerson</td>
+                    <td>Santos Mateo</td>
+                    <td>M</td>
+                    <td>19/7/2020</td>
+                    <td>Activo</td>
+                    <td>
+                        @Html.ActionLink("Editar", "EditarEmpleado", "Empleado", new { id = 2 }, new { @class = "btn btn-success icon-edit" })
+                        @Html.ActionLink("Bloquear", "CambiarEstado_A_Inactivo", "Empleado", new { id = 3 }, new { @class = "btn btn-danger icon-block" })
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>

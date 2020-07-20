@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace SistemaGestorDeNominas.Controllers
 {
+    [Route("[controller]/[action]")]
     public class NominaController : Controller
     {
         public ActionResult NuevaNomina()
@@ -17,7 +18,22 @@ namespace SistemaGestorDeNominas.Controllers
         public ActionResult FiltrarNomina()
         {
             // La nomina sera filtrada por mes y año.
-            return RedirectToAction(nameof(NuevaNomina));
+            return View();
+        }
+
+        public ActionResult NominaFiltrada() 
+        {
+            return View();
+        }
+
+        public ActionResult ContribucionEmpleador() 
+        {
+            return View();
+        }
+
+        public ActionResult ContribucionEmpleado() 
+        {
+            return View();
         }
 
         public ActionResult GenerarNuevaNomina() 

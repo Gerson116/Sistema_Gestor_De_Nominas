@@ -151,6 +151,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
+    <Compile Include="Controllers\ContribucionParaDGIIController.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\NominaController.cs" />
     <Compile Include="Global.asax.cs">
@@ -165,6 +166,13 @@
     <Content Include="Library\Bootstrap\css\bootstrap.min.css" />
     <Content Include="Library\Bootstrap\js\bootstrap.min.js" />
     <Content Include="Library\Bootstrap\js\popper.min.js" />
+    <Content Include="Library\Fontello\css\animation.css" />
+    <Content Include="Library\Fontello\css\fontello-codes.css" />
+    <Content Include="Library\Fontello\css\fontello-embedded.css" />
+    <Content Include="Library\Fontello\css\fontello-ie7-codes.css" />
+    <Content Include="Library\Fontello\css\fontello-ie7.css" />
+    <Content Include="Library\Fontello\css\fontello.css" />
+    <Content Include="Library\Fontello\font\fontello.svg" />
     <Content Include="Library\Jquery\jquery-3.5.1.slim.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
@@ -175,6 +183,10 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Library\Fontello\font\fontello.eot" />
+    <Content Include="Library\Fontello\font\fontello.ttf" />
+    <Content Include="Library\Fontello\font\fontello.woff" />
+    <Content Include="Library\Fontello\font\fontello.woff2" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -279,11 +291,16 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Empleado\ListadoEmpleado.cshtml" />
-    <Content Include="Views\Empleado\PerfilEmpleado.cshtml" />
     <Content Include="Views\Empleado\EditarEmpleado.cshtml" />
     <Content Include="Views\Empleado\AgregarEmpleado.cshtml" />
     <Content Include="Views\Nomina\NuevaNomina.cshtml" />
     <Content Include="Views\Nomina\GenerarNuevaNomina.cshtml" />
+    <Content Include="Views\Nomina\ContribucionEmpleador.cshtml" />
+    <Content Include="Views\Nomina\ContribucionEmpleado.cshtml" />
+    <Content Include="Views\Nomina\NominaFiltrada.cshtml" />
+    <Content Include="Views\Nomina\FiltrarNomina.cshtml" />
+    <Content Include="Views\ContribucionParaDGII\FormularioContribucionesAgregar.cshtml" />
+    <Content Include="Views\ContribucionParaDGII\FormularioContribucionesEditar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

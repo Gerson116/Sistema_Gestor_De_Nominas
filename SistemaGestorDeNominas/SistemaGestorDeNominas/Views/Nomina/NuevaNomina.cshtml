@@ -1,7 +1,62 @@
 ﻿
 @{
-    ViewBag.Title = "NuevaNomina";
+    ViewBag.Title = "Nueva Nomina";
 }
 
-<h2>NuevaNomina</h2>
+@{
+    var listado = new List<SelectListItem>
+    {
+        new SelectListItem { Text = "Enero", Value = "1" },
+        new SelectListItem { Text = "Febrero", Value = "2" }
+    };
 
+}
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <h2>Nueva Nomina</h2> <b>@DateTime.Now.Day / @DateTime.Now.Month / @DateTime.Now.Year</b>
+        </div>
+        <div class="col-md-12">
+            <p>
+                <b>NOTA:</b> Si desea realizar cambios a los datos del usuario recuerde debe editar sus datos
+            </p>
+            <form action="/" method="/" class="row">
+                <div class="col-sm-12 col-md-5">
+                    @Html.DropDownList("miDropDownList", listado)
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <table class="table">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Sexo</th>
+                    <th>Fecha de ingreso</th>
+                    <th>Sueldo Bruto</th>
+                    <th>Ret. ARS</th>
+                    <th>Ret. AFP</th>
+                    <th>Ret. IRS</th>
+                    <th>Total descontado</th>
+                    <th>Salario Neto</th>
+                </tr>
+                <tr>
+                    <td>Gerson</td>
+                    <td>Santos Mateo</td>
+                    <td>M</td>
+                    <td>19/7/2020</td>
+                    <td>22000.00</td>
+                    <td>0000.00</td>
+                    <td>0000.00</td>
+                    <td>0000.00</td>
+                    <td>0000.00</td>
+                    <td>00000.00</td>
+                </tr>
+            </table>
+        </div>
+    </div>
