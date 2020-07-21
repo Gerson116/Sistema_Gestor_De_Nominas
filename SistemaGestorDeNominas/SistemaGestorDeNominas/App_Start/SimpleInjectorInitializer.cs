@@ -8,7 +8,8 @@ namespace SistemaGestorDeNominas.App_Start
     using SimpleInjector;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
-    
+    using SistemaGestorDeNominas.Services.Empleado;
+
     public static class SimpleInjectorInitializer
     {
         /// <summary>Initialize the container and register it as MVC3 Dependency Resolver.</summary>
@@ -28,9 +29,9 @@ namespace SistemaGestorDeNominas.App_Start
      
         private static void InitializeContainer(Container container)
         {
-
             // For instance:
             // container.Register<IUserRepository, SqlUserRepository>(Lifestyle.Scoped);
+            container.Register<IEmpleadoCRUD, SEmpleadoCRUD>(Lifestyle.Scoped);
         }
     }
 }

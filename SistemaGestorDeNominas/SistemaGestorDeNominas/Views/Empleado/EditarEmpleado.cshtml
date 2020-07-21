@@ -1,4 +1,5 @@
-﻿
+﻿@model SistemaGestorDeNominas.Models.DTOs.EmpleadoDTO 
+
 @{
     ViewBag.Title = "Editar Empleado";
 }
@@ -12,14 +13,17 @@
     <div class="col-md-8">
         <form action="/Empleado/EditarEmpleado" method="post">
             <div class="form-group">
+                <input type="hidden" name="id_empleado" value="@Model.ID" />
+            </div>
+            <div class="form-group">
                 <!-- Aquí el nombre -->
                 <label form="nombre">Nombre</label>
-                <input type="text" name="nombre" placeholder="Gerson" class="form-control" />
+                <input type="text" name="nombre" placeholder="@Model.Nombre" value="@Model.Nombre" class="form-control" />
             </div>
             <div class="form-group">
                 <!-- Aquí el apellido -->
                 <label form="apellido">Apellido</label>
-                <input type="text" name="apellido" placeholder="Santos Mateo" class="form-control" />
+                <input type="text" name="apellido" placeholder="@Model.Apellido" value="@Model.Apellido" class="form-control" />
             </div>
             <div class="form-group">
                 <!-- Aquí el sexo -->
@@ -32,12 +36,12 @@
             <div class="form-group">
                 <!-- Aquí el sueldo -->
                 <label for="sueldo">Sueldo a pagar</label>
-                <input type="number" name="sueldo" placeholder="Ej: 24000.00" class="form-control" />
+                <input type="number" name="sueldo" placeholder="@Model.Sueldo" value="@Model.Sueldo" class="form-control" />
             </div>
             <div class="form-group">
-                <!-- Aquí la fecha de entrada -->
-                <label for="fecha_de_entrada">Fecha de entrada</label>
-                <input type="date" name="fecha_de_entrada" class="form-control" />
+                <input type="radio" name="estadoDelCliente" value="Activar" />
+                <label for="estadoDelCliente">Activar Empleado</label>
+                <b>SOLO SI EL EMPLEADO FUE BLOQUEADO</b>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-block btn-primary icon-edit">

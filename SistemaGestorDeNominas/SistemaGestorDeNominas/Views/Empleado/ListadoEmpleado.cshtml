@@ -1,6 +1,6 @@
-﻿
+﻿@model List<SistemaGestorDeNominas.Models.Empleado>
 @{
-    ViewBag.Title = "ListadoEmpleado";
+    ViewBag.Title = "Listado Empleado";
 }
 
     <div class="row mt-3">
@@ -13,8 +13,8 @@
                     Filtrar Empleados
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    @Html.ActionLink("Empleados Activos", "ListadoEmpleado", "Empleado", new { estado_A_Filtrar = 1 }, new { @class= "dropdown-item" })
-                    @Html.ActionLink("Empleados Inactivos", "ListadoEmpleado", "Empleado", new { estado_A_Filtrar = 0 }, new { @class = "dropdown-item" })
+                    @Html.ActionLink("Empleados Activos", "/ListadoEmpleadoFiltrado", "Empleado", new { estado_A_Filtrar = 1 }, new { @class= "dropdown-item" })
+                    @Html.ActionLink("Empleados Inactivos", "/ListadoEmpleadoFiltrado", "Empleado", new { estado_A_Filtrar = 0 }, new { @class = "dropdown-item" })
                 </div>
             </div>
         </div>
@@ -35,17 +35,20 @@
                     <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
-                <tr>
-                    <td>Gerson</td>
-                    <td>Santos Mateo</td>
-                    <td>M</td>
-                    <td>19/7/2020</td>
-                    <td>Activo</td>
-                    <td>
-                        @Html.ActionLink("Editar", "EditarEmpleado", "Empleado", new { id_empleado = 2 }, new { @class = "btn btn-success icon-edit" })
-                        @Html.ActionLink("Bloquear", "CambiarEstado_A_Inactivo", "Empleado", new { id_empleado = 3 }, new { @class = "btn btn-danger icon-block" })
-                    </td>
-                </tr>
+                @foreach (var datosEmpleado in Model)
+                {
+                    <tr>
+                        <td>@datosEmpleado.Nombre</td>
+                        <td>@datosEmpleado.Apellido</td>
+                        <td>@datosEmpleado.Sexo</td>
+                        <td>@datosEmpleado.FechaDeEntrada</td>
+                        <td>@datosEmpleado.EstadoDelEmpleado</td>
+                        <td>
+                            @Html.ActionLink("Editar", "EditarEmpleado", "Empleado", new { id_empleado = datosEmpleado.ID }, new { @class = "btn btn-success icon-edit" })
+                            @Html.ActionLink("Bloquear", "CambiarEstado_A_Inactivo", "Empleado", new { id_empleado = datosEmpleado.ID }, new { @class = "btn btn-danger icon-block" })
+                        </td>
+                    </tr>
+                }
             </table>
         </div>
     </div>
