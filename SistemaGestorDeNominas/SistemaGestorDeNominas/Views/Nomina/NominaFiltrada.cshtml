@@ -1,4 +1,5 @@
-﻿
+﻿@model List<SistemaGestorDeNominas.Models.Nomina>
+
 @{
     ViewBag.Title = "Nomina Filtrada";
 }
@@ -8,10 +9,16 @@
         <h2>Resultado de la busqueda.</h2>
     </div>
     <div class="col-md-6">
-        <form action="/" method="post">
+        <form action="/Nomina/NominaFiltrada" method="post">
             <div class="row">
                 <div class="col-md-8">
                     <input type="date" name="fechaDeEmicion" class="form-control" />
+
+                    <input type="radio" name="sexo" id="femenino" value="f" />
+                    <label for="femenino">femenino</label>
+
+                    <input type="radio" name="sexo" id="masculino" value="m" />
+                    <label for="masculino">masculino</label>
                 </div>
                 <div class="col-md-4 justify-content-end">
                     <button class="btn btn-primary icon-filter" type="submit">filtrar</button>

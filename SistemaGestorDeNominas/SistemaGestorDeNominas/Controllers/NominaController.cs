@@ -3,6 +3,7 @@ using SistemaGestorDeNominas.Services.Empleado;
 using SistemaGestorDeNominas.Services.Nomina;
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -44,8 +45,8 @@ namespace SistemaGestorDeNominas.Controllers
             // Guardar la nomina y redireccionar al usuario a la ventana filtrar nomina.
             if (_mesesDelAnio.ValidarMesDelAnio(mesesDelAnio) != null)
             {
-                _nominaCRUD.NuevaNomina(miNomina);
-                return RedirectToAction(nameof(NominaFiltrada));
+                _nominaCRUD.NuevaNomina(miNomina, int.Parse(mesesDelAnio), DateTime.Today.Year);
+                return RedirectToAction(nameof(FiltrarNomina));
             }
             return RedirectToAction(nameof(NuevaNomina));
         }
@@ -57,9 +58,38 @@ namespace SistemaGestorDeNominas.Controllers
         }
 
         [HttpPost]
-        public ActionResult NominaFiltrada(string mesesDelAnio) 
+        public ActionResult FiltrarNomina(string fechaDeBusqueda, string sexo)
         {
-            return View();
+            // La nomina sera filtrada por mes y año.
+            var nomina = _nominaCRUD.ListadoDeNominasFiltradaPorFecha(fechaDeBusqueda);
+            TempData["list"] = nomina;
+            return RedirectToAction(nameof(NominaFiltrada));
+        }
+
+        [HttpGet]
+        public ActionResult NominaFiltrada()
+        {
+            //var nomina = _nominaCRUD.ListadoDeNominasFiltradaPorFecha(fechaDeBusqueda);
+            var model = TempData["list"];
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult NominaFiltrada(string fechaDeEmicion, string sexo)
+        {
+            var filtrando = new FiltroParaBuscarNominaPorNombre_O_Sexo();
+            var model = TempData["list"];
+            if (filtrando.Fecha_Y_Sexo(fechaDeEmicion, sexo) != null)
+            {
+                model = filtrando;
+                return View(model);
+            }
+            else if (filtrando.Fecha(fechaDeEmicion) != null)
+            {
+                model = filtrando;
+                return View(model);
+            }
+            return FiltrarNomina();
         }
 
         public ActionResult GenerarNuevaNomina() 

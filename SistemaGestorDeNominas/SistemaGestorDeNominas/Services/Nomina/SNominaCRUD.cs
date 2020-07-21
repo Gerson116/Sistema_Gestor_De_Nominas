@@ -2,6 +2,7 @@
 using SistemaGestorDeNominas.Services.Contribucion_Y_Otros_Impuestos;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 
@@ -17,6 +18,29 @@ namespace SistemaGestorDeNominas.Services.Nomina
             //...
             _nominaEmpleados = new List<Models.Nomina>();
         }
+
+        public List<Models.Nomina> ListadoDeNominas()
+        {
+            return _nominaEmpleados;
+        }
+
+        public List<Models.Nomina> ListadoDeNominasFiltradaPorFecha(string fecha)
+        {
+            DateTime convertirFecha = Convert.ToDateTime(fecha, CultureInfo.InvariantCulture);
+            int mes = DateTime.Parse(fecha).Month;
+            int year = DateTime.Parse(fecha).Year;
+            using (var dbContext = new SistemaDeGestionDeNomina())
+            {
+                var nominas = dbContext.Nomina.Where(n=> n.MesDeLaNomina == mes && n.AnioDeLaNomia == year).ToList();
+                if (nominas.Count >= 1)
+                {
+                    _nominaEmpleados = nominas;
+                }
+                return _nominaEmpleados;
+            }
+            return null;
+        }
+
         public List<Models.Nomina> NominaEmpleados(List<Models.Empleado> empleados)
         {
             // El objeto "objValidarLasContribuciones" es utilizado para hacer los calculos,
@@ -51,7 +75,7 @@ namespace SistemaGestorDeNominas.Services.Nomina
             return _nominaEmpleados;
         }
 
-        public void NuevaNomina(List<Models.Nomina> nuevaNominaEmpleados)
+        public void NuevaNomina(List<Models.Nomina> nuevaNominaEmpleados, int mes, int year)
         {
             var objNomina = new Models.Nomina();
             using (var dbContext = new SistemaDeGestionDeNomina())
@@ -69,6 +93,8 @@ namespace SistemaGestorDeNominas.Services.Nomina
                     objNomina.TotalDesc = datosDeLaNomina.TotalDesc;
                     objNomina.SueldoNeto = datosDeLaNomina.SueldoNeto;
                     objNomina.FechaDeEmicion = datosDeLaNomina.FechaDeEmicion;
+                    objNomina.MesDeLaNomina = mes;
+                    objNomina.AnioDeLaNomia = year;
 
                     // Guardando los datos.
                     //dbContext.Nomina.Add(objNomina);

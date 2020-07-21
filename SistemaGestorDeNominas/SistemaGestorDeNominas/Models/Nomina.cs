@@ -33,5 +33,8 @@ namespace SistemaGestorDeNominas.Models
         public double SueldoNeto { get; set; }
         [Required]
         public DateTime FechaDeEmicion { get; set; }
+
+        public int MesDeLaNomina { get; set; } // para filtrar.
+        public int AnioDeLaNomia { get; set; } // para filtrar.
     }
 }
