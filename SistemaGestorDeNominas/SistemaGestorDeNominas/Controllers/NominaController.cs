@@ -58,10 +58,10 @@ namespace SistemaGestorDeNominas.Controllers
         }
 
         [HttpPost]
-        public ActionResult FiltrarNomina(string fechaDeBusqueda, string sexo)
+        public ActionResult FiltrarNomina(string fechaDeBusqueda)
         {
             // La nomina sera filtrada por mes y año.
-            var nomina = _nominaCRUD.ListadoDeNominasFiltradaPorFecha(fechaDeBusqueda);
+            var nomina = new FiltroParaBuscarNominaPorNombre_O_Sexo().Fecha(fechaDeBusqueda);
             TempData["list"] = nomina;
             return RedirectToAction(nameof(NominaFiltrada));
         }
@@ -78,15 +78,15 @@ namespace SistemaGestorDeNominas.Controllers
         public ActionResult NominaFiltrada(string fechaDeEmicion, string sexo)
         {
             var filtrando = new FiltroParaBuscarNominaPorNombre_O_Sexo();
-            var model = TempData["list"];
-            if (filtrando.Fecha_Y_Sexo(fechaDeEmicion, sexo) != null)
+            var model = new List<Models.Nomina>();
+            if (filtrando.Fecha(fechaDeEmicion) != null && sexo == null)
             {
-                model = filtrando;
+                model = filtrando.Fecha(fechaDeEmicion);
                 return View(model);
             }
-            else if (filtrando.Fecha(fechaDeEmicion) != null)
+            else if (filtrando.Fecha_Y_Sexo(fechaDeEmicion, sexo) != null)
             {
-                model = filtrando;
+                model = filtrando.Fecha_Y_Sexo(fechaDeEmicion, sexo);
                 return View(model);
             }
             return FiltrarNomina();

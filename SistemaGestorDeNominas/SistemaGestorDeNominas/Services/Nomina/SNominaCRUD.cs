@@ -26,12 +26,15 @@ namespace SistemaGestorDeNominas.Services.Nomina
 
         public List<Models.Nomina> ListadoDeNominasFiltradaPorFecha(string fecha)
         {
-            DateTime convertirFecha = Convert.ToDateTime(fecha, CultureInfo.InvariantCulture);
+            //DateTime cambiarFormatoDeFecha = DateTime.Parse(fecha);
+            //string fecha_A_Utilizar = cambiarFormatoDeFecha.ToString("MM/dd/yyyy");
             int mes = DateTime.Parse(fecha).Month;
             int year = DateTime.Parse(fecha).Year;
             using (var dbContext = new SistemaDeGestionDeNomina())
             {
-                var nominas = dbContext.Nomina.Where(n=> n.MesDeLaNomina == mes && n.AnioDeLaNomia == year).ToList();
+                //var objListadoNomina = dbContext.Nomina.ToList();
+                //var nominas = ob bjListadoNomina.Where(n => n.MesDeLaNomina == mes).ToList();
+                var nominas = dbContext.Nomina.Where(n => n.MesDeLaNomina == mes).ToList();
                 if (nominas.Count >= 1)
                 {
                     _nominaEmpleados = nominas;
@@ -97,8 +100,8 @@ namespace SistemaGestorDeNominas.Services.Nomina
                     objNomina.AnioDeLaNomia = year;
 
                     // Guardando los datos.
-                    //dbContext.Nomina.Add(objNomina);
-                    //dbContext.SaveChanges();
+                    dbContext.Nomina.Add(objNomina);
+                    dbContext.SaveChanges();
                 }
             }
         }
