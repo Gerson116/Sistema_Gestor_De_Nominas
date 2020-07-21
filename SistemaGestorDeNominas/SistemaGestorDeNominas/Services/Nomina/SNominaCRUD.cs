@@ -35,7 +35,7 @@ namespace SistemaGestorDeNominas.Services.Nomina
                 //var objListadoNomina = dbContext.Nomina.ToList();
                 //var nominas = ob bjListadoNomina.Where(n => n.MesDeLaNomina == mes).ToList();
                 var nominas = dbContext.Nomina.Where(n => n.MesDeLaNomina == mes).ToList();
-                if (nominas.Count >= 1)
+                if (nominas.Count >= 1 && nominas.Where(n => n.AnioDeLaNomia == year).ToList().Count > 1)
                 {
                     _nominaEmpleados = nominas;
                 }
