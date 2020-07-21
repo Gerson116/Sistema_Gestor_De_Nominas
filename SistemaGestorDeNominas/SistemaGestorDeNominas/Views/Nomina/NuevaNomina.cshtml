@@ -1,4 +1,5 @@
-﻿
+﻿@model List<SistemaGestorDeNominas.Models.Nomina>
+
 @{
     ViewBag.Title = "Nueva Nomina";
 }
@@ -20,9 +21,9 @@
             <p>
                 <b>NOTA:</b> Si desea realizar cambios a los datos del usuario recuerde debe editar sus datos
             </p>
-            <form action="/" method="/" class="row">
+            <form action="/Nomina/NominaFiltrada" method="post" class="row">
                 <div class="col-sm-12 col-md-5">
-                    @Html.DropDownList("miDropDownList", listado)
+                    @Html.DropDownList("mesesDelAnio", (List<SelectListItem>)ViewBag.Message)
                     <button type="submit" class="btn btn-primary">Crear</button>
                 </div>
             </form>
@@ -45,18 +46,21 @@
                     <th>Total descontado</th>
                     <th>Salario Neto</th>
                 </tr>
-                <tr>
-                    <td>Gerson</td>
-                    <td>Santos Mateo</td>
-                    <td>M</td>
-                    <td>19/7/2020</td>
-                    <td>22000.00</td>
-                    <td>0000.00</td>
-                    <td>0000.00</td>
-                    <td>0000.00</td>
-                    <td>0000.00</td>
-                    <td>00000.00</td>
-                </tr>
+                @foreach (var datos in Model)
+                {
+                    <tr>
+                        <td>@datos.Nombre</td>
+                        <td>@datos.Apellido</td>
+                        <td>@datos.Sexo</td>
+                        <td>@datos.FechaDeIngreso</td>
+                        <td>@datos.SueldoBruto</td>
+                        <td>@datos.ARS</td>
+                        <td>@datos.AFP</td>
+                        <td>@datos.IRS</td>
+                        <td>@datos.TotalDesc</td>
+                        <td>@datos.SueldoNeto</td>
+                    </tr>
+                }
             </table>
         </div>
     </div>

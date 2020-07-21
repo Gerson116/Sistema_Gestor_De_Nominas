@@ -25,7 +25,6 @@
     <div class="col-md-12">
         <table class="table">
             <tr>
-                <th>Mes Correspondiente</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Sexo</th>
@@ -37,19 +36,21 @@
                 <th>Total descontado</th>
                 <th>Salario Neto</th>
             </tr>
-            <tr>
-                <td>Julio</td>
-                <td>Gerson</td>
-                <td>Santos Mateo</td>
-                <td>M</td>
-                <td>19/7/2020</td>
-                <td>22000.00</td>
-                <td>0000.00</td>
-                <td>0000.00</td>
-                <td>0000.00</td>
-                <td>0000.00</td>
-                <td>00000.00</td>
-            </tr>
+            @foreach (var datos in Model)
+            {
+                <tr>
+                    <td>@datos.Nombre</td>
+                    <td>@datos.Apellido</td>
+                    <td>@datos.Sexo</td>
+                    <td>@datos.FechaDeIngreso</td>
+                    <td>@datos.SueldoBruto</td>
+                    <td>@datos.ARS</td>
+                    <td>@datos.AFP</td>
+                    <td>@datos.IRS</td>
+                    <td>@datos.TotalDesc</td>
+                    <td>@datos.SueldoNeto</td>
+                </tr>
+            }
         </table>
     </div>
 </div>

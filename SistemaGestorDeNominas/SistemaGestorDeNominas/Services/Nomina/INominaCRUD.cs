@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace SistemaGestorDeNominas.Services.Nomina
 {
-    interface INominaCRUD
+    public interface INominaCRUD
     {
+        List<Models.Nomina> NominaEmpleados(List<Models.Empleado> empleados);
+        void NuevaNomina(List<Models.Nomina> empleados);
     }
 }

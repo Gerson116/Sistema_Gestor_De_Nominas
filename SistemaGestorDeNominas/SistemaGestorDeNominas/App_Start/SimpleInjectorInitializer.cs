@@ -9,6 +9,7 @@ namespace SistemaGestorDeNominas.App_Start
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
     using SistemaGestorDeNominas.Services.Empleado;
+    using SistemaGestorDeNominas.Services.Nomina;
 
     public static class SimpleInjectorInitializer
     {
@@ -32,6 +33,7 @@ namespace SistemaGestorDeNominas.App_Start
             // For instance:
             // container.Register<IUserRepository, SqlUserRepository>(Lifestyle.Scoped);
             container.Register<IEmpleadoCRUD, SEmpleadoCRUD>(Lifestyle.Scoped);
+            container.Register<INominaCRUD, SNominaCRUD>(Lifestyle.Scoped);
         }
     }
 }
