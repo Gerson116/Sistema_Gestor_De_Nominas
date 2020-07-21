@@ -20,16 +20,16 @@
             <li class="nav-item">
                 @Html.ActionLink("Filtrar Nomina", "FiltrarNomina", "Nomina", null, new { @class = "nav-link" })
             </li>
-            <li class="nav-item dropdown">
+            @*<li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     Contribución a Impuestos Internos
                 </a>
                 <div class="dropdown-menu">
                     @Html.ActionLink("Agregar Contribución de Empleado o Empleador.", "FormularioContribucionesAgregar", "ContribucionParaDGII", null, new { @class = "dropdown-item" })
-                    <div class="dropdown-divider"> <!-- Este div es un divisor --> </div>
+                    <div class="dropdown-divider"></div>
                     @Html.ActionLink("Editar Contribución de Empleado o Empleador.", "FormularioContribucionesEditar", "ContribucionParaDGII", null, new { @class = "dropdown-item" })
                 </div>
-            </li>
+            </li>*@
         </ul>
         @RenderBody()
     </div>

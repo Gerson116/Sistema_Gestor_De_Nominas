@@ -152,7 +152,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
     <Compile Include="Context\SistemaDeGestionDeNomina.cs" />
-    <Compile Include="Controllers\ContribucionParaDGIIController.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\NominaController.cs" />
     <Compile Include="Global.asax.cs">
@@ -168,13 +167,15 @@
     <Compile Include="Models\Empleado.cs" />
     <Compile Include="Models\Nomina.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Contribucion_Y_Otros_Impuestos\IRetencionAlEmpleadoCRUD.cs" />
-    <Compile Include="Services\Contribucion_Y_Otros_Impuestos\SRetencionAlEmpleadoCRUD.cs" />
+    <Compile Include="Services\Contribucion_Y_Otros_Impuestos\CalcularIRS.cs" />
+    <Compile Include="Services\Contribucion_Y_Otros_Impuestos\ReglaDeTresParaCalcularPorcientos.cs" />
+    <Compile Include="Services\Contribucion_Y_Otros_Impuestos\ValidarLasContribuciones.cs" />
     <Compile Include="Services\Empleado\FiltroParaEmpleado.cs" />
     <Compile Include="Services\Empleado\IEmpleadoCRUD.cs" />
     <Compile Include="Services\Empleado\SEmpleadoCRUD.cs" />
     <Compile Include="Services\Empleado\ValidarDatosEmpleados.cs" />
     <Compile Include="Services\Nomina\INominaCRUD.cs" />
+    <Compile Include="Services\Nomina\MesesDelAnio.cs" />
     <Compile Include="Services\Nomina\SNominaCRUD.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -315,8 +316,6 @@
     <Content Include="Views\Nomina\GenerarNuevaNomina.cshtml" />
     <Content Include="Views\Nomina\NominaFiltrada.cshtml" />
     <Content Include="Views\Nomina\FiltrarNomina.cshtml" />
-    <Content Include="Views\ContribucionParaDGII\FormularioContribucionesAgregar.cshtml" />
-    <Content Include="Views\ContribucionParaDGII\FormularioContribucionesEditar.cshtml" />
     <Content Include="Views\Empleado\ListadoEmpleadoFiltrado.cshtml" />
   </ItemGroup>
   <ItemGroup>
