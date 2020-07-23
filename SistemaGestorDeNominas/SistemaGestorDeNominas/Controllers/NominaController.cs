@@ -82,14 +82,8 @@ namespace SistemaGestorDeNominas.Controllers
         {
             var filtrando = new FiltroParaBuscarNominaPorNombre_O_Sexo();
             var model = new List<Models.Nomina>();
-            if (filtrando.Fecha(fechaDeEmicion) != null)
-            {
-                model = filtrando.Fecha(fechaDeEmicion);
-                ViewData["mes"] = DateTime.Parse(DateTime.Parse(fechaDeEmicion).ToString("MM/dd/yyyy")).Month;
-                ViewData["year"] = DateTime.Parse(DateTime.Parse(fechaDeEmicion).ToString("MM/dd/yyyy")).Year;
-                return View(model);
-            }
-            else if (filtrando.Fecha_Y_Sexo(fechaDeEmicion, sexo) != null)
+            
+            if (filtrando.Fecha_Y_Sexo(fechaDeEmicion, sexo) != null)
             {
                 model = filtrando.Fecha_Y_Sexo(fechaDeEmicion, sexo);
                 if (model != null)
@@ -98,6 +92,13 @@ namespace SistemaGestorDeNominas.Controllers
                     ViewData["year"] = DateTime.Parse(DateTime.Parse(fechaDeEmicion).ToString("MM/dd/yyyy")).Year;
                     return View(model);
                 }
+            }
+            else if (filtrando.Fecha(fechaDeEmicion) != null)
+            {
+                model = filtrando.Fecha(fechaDeEmicion);
+                ViewData["mes"] = DateTime.Parse(DateTime.Parse(fechaDeEmicion).ToString("MM/dd/yyyy")).Month;
+                ViewData["year"] = DateTime.Parse(DateTime.Parse(fechaDeEmicion).ToString("MM/dd/yyyy")).Year;
+                return View(model);
             }
             return FiltrarNomina();
         }
