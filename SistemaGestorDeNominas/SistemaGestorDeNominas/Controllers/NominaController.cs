@@ -100,7 +100,7 @@ namespace SistemaGestorDeNominas.Controllers
                 ViewData["year"] = DateTime.Parse(DateTime.Parse(fechaDeEmicion).ToString("MM/dd/yyyy")).Year;
                 return View(model);
             }
-            return FiltrarNomina();
+            return RedirectToAction(nameof(FiltrarNomina));
         }
 
         public ActionResult GenerarNuevaNomina() 
