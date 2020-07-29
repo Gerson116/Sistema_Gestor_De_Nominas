@@ -78,18 +78,6 @@ namespace SistemaGestorDeNominas.Controllers
             return View();
         }
 
-        /*Este código era utilizado anteriormente pero ya esta anulado
-        //public ActionResult FiltrarNomina(string fechaDeBusqueda)
-        //{
-        //    // La nomina sera filtrada por mes y año.
-        //    DateTime cabiarFecha = DateTime.Parse(fechaDeBusqueda);
-        //    int capturarMes = DateTime.Parse(cabiarFecha.ToString("MM/dd/yyyy")).Month;
-        //    var nominaDelMes = new MesesDelAnio().ValidarMesDelAnio(capturarMes.ToString());
-        //    var nomina = new FiltroParaBuscarNominaPorNombre_O_Sexo().Fecha(fechaDeBusqueda);
-        //    TempData["list"] = nomina;
-        //    return RedirectToAction(nameof(NominaFiltrada));
-        //}*/
-
         [HttpPost]
         public ActionResult FiltrarNomina(string meses, string years)
         {
@@ -113,32 +101,6 @@ namespace SistemaGestorDeNominas.Controllers
             var model = TempData["list"];
             return View(model);
         }
-
-        /*Este código era utilizado anteriormente pero ya esta anulado
-        //public ActionResult NominaFiltrada(string fechaDeEmicion, string sexo)
-        //{
-        //    var filtrando = new FiltroParaBuscarNominaPorNombre_O_Sexo();
-        //    var model = new List<Models.Nomina>();
-            
-        //    if (filtrando.Fecha_Y_Sexo(fechaDeEmicion, sexo) != null)
-        //    {
-        //        model = filtrando.Fecha_Y_Sexo(fechaDeEmicion, sexo);
-        //        if (model != null)
-        //        {
-        //            ViewData["mes"] = DateTime.Parse(DateTime.Parse(fechaDeEmicion).ToString("MM/dd/yyyy")).Month;
-        //            ViewData["year"] = DateTime.Parse(DateTime.Parse(fechaDeEmicion).ToString("MM/dd/yyyy")).Year;
-        //            return View(model);
-        //        }
-        //    }
-        //    else if (filtrando.Fecha(fechaDeEmicion) != null)
-        //    {
-        //        model = filtrando.Fecha(fechaDeEmicion);
-        //        ViewData["mes"] = DateTime.Parse(DateTime.Parse(fechaDeEmicion).ToString("MM/dd/yyyy")).Month;
-        //        ViewData["year"] = DateTime.Parse(DateTime.Parse(fechaDeEmicion).ToString("MM/dd/yyyy")).Year;
-        //        return View(model);
-        //    }
-        //    return RedirectToAction(nameof(FiltrarNomina));
-        //}*/
 
         [HttpPost]
         public ActionResult NominaFiltrada(string meses, string years, string sexo)
