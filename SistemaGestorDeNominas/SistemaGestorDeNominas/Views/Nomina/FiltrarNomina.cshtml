@@ -20,7 +20,9 @@
                 <div class="row">
                     <div class="col-md-8">
                         <!-- Aquí dentro se encuentran: el input para fecha y sexo -->
-                        <input type="date" name="fechaDeBusqueda" class="form-control" />
+                        @*<input type="date" name="fechaDeBusqueda" class="form-control" />*@
+                        @Html.DropDownList("meses", (List<SelectListItem>)ViewBag.MesesDelAnio, new { @class="btn btn-secondary dropdown-toggle" })
+                        @Html.DropDownList("years", (List<SelectListItem>)ViewBag.Years, new { @class = "btn btn-secondary dropdown-toggle" })
                     </div>
                     <div class="col-md-4 justify-content-end">
                         <button class="btn btn-primary icon-filter" type="submit">filtrar</button>

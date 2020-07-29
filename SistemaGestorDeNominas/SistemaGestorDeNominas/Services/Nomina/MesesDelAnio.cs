@@ -10,6 +10,7 @@ namespace SistemaGestorDeNominas.Services.Nomina
     public class MesesDelAnio
     {
         private List<SelectListItem> _mesesDelAnio;
+        private List<SelectListItem> _years;
         public MesesDelAnio()
         {
             //...
@@ -28,11 +29,25 @@ namespace SistemaGestorDeNominas.Services.Nomina
                 new SelectListItem { Text = "Noviembre", Value = "11" },
                 new SelectListItem { Text = "Diciembre", Value = "12" }
             };
+            _years = new List<SelectListItem> 
+            {
+                new SelectListItem { Text = "2020", Value="2020" },
+                new SelectListItem { Text = "2021", Value="2021" },
+                new SelectListItem { Text = "2022", Value="2022" },
+                new SelectListItem { Text = "2023", Value="2023" },
+                new SelectListItem { Text = "2024", Value="2024" }
+            };
         }
         public List<SelectListItem> Meses()
         {
             // Retornando los meses del año con un SelectListItem.
             return _mesesDelAnio;
+        }
+
+        public List<SelectListItem> Years() 
+        {
+            //  Retornando los años
+            return _years;
         }
 
         public string ValidarMesDelAnio(string mesSeleccionado) 

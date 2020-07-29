@@ -5,62 +5,86 @@
 }
 
 @{
-    var listado = new List<SelectListItem>
+    if (ViewBag.NominaExistente == true)
     {
-        new SelectListItem { Text = "Enero", Value = "1" },
-        new SelectListItem { Text = "Febrero", Value = "2" }
-    };
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Cuidado Amigo(a)!</strong> La nomina que esta intentando crear ya existe.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            @Html.ActionLink("Guardar de todos modos", "ModificarNomina", new { mes = ViewBag.Mes, year = DateTime.Now.Year }, new { @class = "btn btn-primary" })
+        </div>
+    }
 
+    if (ViewBag.NominaGuardadaExistamente == true)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Exito(a)!</strong> Acaba de crear la nomina del mes de: @ViewBag.MesEnQueFueCredaLaNomina del año @DateTime.Now.Year
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    if (ViewBag.DatosEliminadosConExito == true)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Exito(a)!</strong> La nomina perteneciente al mes: @ViewBag.MesEnQueFueCredaLaNomina fue modificada.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
 }
 
-    <div class="row mt-3">
-        <div class="col-md-12">
-            <h2>Nueva Nomina</h2> <b>@DateTime.Now.Day / @DateTime.Now.Month / @DateTime.Now.Year</b>
-        </div>
-        <div class="col-md-12">
-            <p>
-                <b>NOTA:</b> Si desea realizar cambios a los datos del usuario recuerde debe editar sus datos
-            </p>
-            <form action="/Nomina/NuevaNomina" method="post" class="row">
-                <div class="col-sm-12 col-md-5">
-                    @Html.DropDownList("mesesDelAnio", (List<SelectListItem>)ViewBag.Message)
-                    <button type="submit" class="btn btn-primary">Crear</button>
-                </div>
-            </form>
-        </div>
+<div class="row mt-3">
+    <div class="col-md-12">
+        <h2>Nueva Nomina</h2> <b>@DateTime.Now.Year</b>
     </div>
+    <div class="col-md-12">
+        <p>
+            <b>NOTA:</b> Si desea realizar cambios a los datos del usuario recuerde debe editar sus datos
+        </p>
+        <form action="/Nomina/NuevaNomina" method="post" class="row">
+            <div class="col-sm-12 col-md-5">
+                @Html.DropDownList("mesesDelAnio", (List<SelectListItem>)ViewBag.Message, new { @class = "btn btn-secondary dropdown-toggle" })
+                <button type="submit" class="btn btn-primary">Crear</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 
-    <div class="row mt-3">
-        <div class="col-md-12">
-            <table class="table">
+<div class="row mt-3">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Sexo</th>
+                <th>Fecha de ingreso</th>
+                <th>Sueldo Bruto</th>
+                <th>Ret. ARS</th>
+                <th>Ret. AFP</th>
+                <th>Ret. IRS</th>
+                <th>Total descontado</th>
+                <th>Salario Neto</th>
+            </tr>
+            @foreach (var datos in Model)
+            {
                 <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Sexo</th>
-                    <th>Fecha de ingreso</th>
-                    <th>Sueldo Bruto</th>
-                    <th>Ret. ARS</th>
-                    <th>Ret. AFP</th>
-                    <th>Ret. IRS</th>
-                    <th>Total descontado</th>
-                    <th>Salario Neto</th>
+                    <td>@datos.Nombre</td>
+                    <td>@datos.Apellido</td>
+                    <td>@datos.Sexo</td>
+                    <td>@datos.FechaDeIngreso</td>
+                    <td>@datos.SueldoBruto</td>
+                    <td>@datos.ARS</td>
+                    <td>@datos.AFP</td>
+                    <td>@datos.IRS</td>
+                    <td>@datos.TotalDesc</td>
+                    <td>@datos.SueldoNeto</td>
                 </tr>
-                @foreach (var datos in Model)
-                {
-                    <tr>
-                        <td>@datos.Nombre</td>
-                        <td>@datos.Apellido</td>
-                        <td>@datos.Sexo</td>
-                        <td>@datos.FechaDeIngreso</td>
-                        <td>@datos.SueldoBruto</td>
-                        <td>@datos.ARS</td>
-                        <td>@datos.AFP</td>
-                        <td>@datos.IRS</td>
-                        <td>@datos.TotalDesc</td>
-                        <td>@datos.SueldoNeto</td>
-                    </tr>
-                }
-            </table>
-        </div>
+            }
+        </table>
     </div>
+</div>

@@ -12,13 +12,13 @@
     <div class="container-fluid mt-1">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                @Html.ActionLink("Listado Empleados", "ListadoEmpleado", "Empleado", null, new { @class = "nav-link active" })
+                @Html.ActionLink("Listado Empleados", "ListadoEmpleado", "Empleado", null, new { @class = (ViewContext.RouteData.Values["Action"].ToString() == "ListadoEmpleado" ? "nav-link active" : "nav-link") })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Crear Nomina", "NuevaNomina", "Nomina", null, new { @class = "nav-link" })
+                @Html.ActionLink("Crear Nomina", "NuevaNomina", "Nomina", null, new { @class = (ViewContext.RouteData.Values["Action"].ToString() == "NuevaNomina" ? "nav-link active" : "nav-link") })
             </li>
             <li class="nav-item">
-                @Html.ActionLink("Filtrar Nomina", "FiltrarNomina", "Nomina", null, new { @class = "nav-link" })
+                @Html.ActionLink("Filtrar Nomina", "FiltrarNomina", "Nomina", null, new { @class = (ViewContext.RouteData.Values["Action"].ToString() == "FiltrarNomina" ? "nav-link active" : "nav-link") })
             </li>
             @*<li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">

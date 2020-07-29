@@ -7,9 +7,22 @@ namespace SistemaGestorDeNominas.Services.Contribucion_Y_Otros_Impuestos
 {
     public class ReglaDeTresParaCalcularPorcientos
     {
-        public double IRSEmpleado(double sueldo, double irsEmpleado)
+        public double IRSEmpleado(double excedenteObtenido, double irsEmpleado)
         {
-            double irs_A_Pagar = (sueldo * irsEmpleado) / 100;
+            // Que es la variable excento?
+            // La variable excedente contendra el resultado obtenido de la resta del sueldo anual
+            // con el monto dado por Impuestos Internos para cada grupo.
+            double cantidad_A_Pagar = (excedenteObtenido * irsEmpleado) / 100;
+            double irs_A_Pagar = cantidad_A_Pagar / 12;
+            return irs_A_Pagar;
+        }
+        public double IRSEmpleado(double excedenteObtenido, double irsEmpleado, double otrosImpuestosAgregados)
+        {
+            // Que es la variable excento?
+            // La variable excedente contendra el resultado obtenido de la resta del sueldo anual
+            // con el monto dado por Impuestos Internos para cada grupo.
+            double porcientoAplicadoAlExcedenteDelSueldoAnual = (excedenteObtenido * irsEmpleado) / 100;
+            double irs_A_Pagar = (porcientoAplicadoAlExcedenteDelSueldoAnual + otrosImpuestosAgregados) / 12;
             return irs_A_Pagar;
         }
 

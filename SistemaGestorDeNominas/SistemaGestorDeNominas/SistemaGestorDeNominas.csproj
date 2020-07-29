@@ -178,6 +178,7 @@
     <Compile Include="Services\Nomina\INominaCRUD.cs" />
     <Compile Include="Services\Nomina\MesesDelAnio.cs" />
     <Compile Include="Services\Nomina\SNominaCRUD.cs" />
+    <Compile Include="Services\Nomina\ValidarExistenciaDeNomina.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
